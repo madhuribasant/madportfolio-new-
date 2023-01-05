@@ -1,0 +1,48 @@
+@use '../../abstract/var' as *;
+@use '../../abstract/mixins' as *;
+
+
+.lists{
+    display: grid;
+    grid-template-columns: repeat(2 ,1fr);
+    list-style: none;
+    width: 100vw;
+    grid-auto-rows: 30px;
+    gap: 4rem;
+    
+    @include sm{
+        grid-template-columns: 1fr;
+    }
+    
+    .list-item{
+        padding: 4.5rem;
+        border-bottom: 2px solid $brown;
+        display: flex;
+        justify-content: space-between;
+        @include sm{
+            border-bottom: 2px solid #f2f2f2;
+        }
+
+        span{
+            font-size: 2rem;
+            color: $brown;
+            font-weight: 700;
+            
+            @include sm{
+                color: #f2f2f2;
+            }
+        }
+        
+        a{
+            
+            background-color: $brown;
+            padding: 1rem;
+            border-radius: 50%;
+
+            @include sm{
+                background-color: $yellow;
+                padding: 0.8rem;
+            }
+        }
+    }
+}

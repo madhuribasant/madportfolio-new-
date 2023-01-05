@@ -1,0 +1,14 @@
+@use '../../abstract/var' as *;
+
+.transition{
+
+    height: 100vh;
+    display: flex;
+    gap: 0;
+    background-color: transparent;
+    .box{
+        height: 0%;
+        width: 100%;
+        background-color: $yellow;
+    }
+}

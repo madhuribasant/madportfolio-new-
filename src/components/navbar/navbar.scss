@@ -1,0 +1,25 @@
+@use "../../abstract/var" as *;
+@use "../../abstract/mixins" as *;
+
+
+
+  nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 4rem 0rem;
+    position: fixed;
+    width: 100vw;
+    z-index: 999;
+    
+    a {
+      text-transform: uppercase;
+      color: $brown;
+      font-size: 1.2rem;
+      position: relative;
+      pointer-events: all;
+      overflow: hidden;
+      @include sm{
+          color: white;
+      }
+    }
+  }

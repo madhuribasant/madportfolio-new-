@@ -1,0 +1,145 @@
+@use "../../abstract/var" as *;
+@use "../../abstract/mixins" as *;
+
+footer {
+  background-color: $olive;
+  height: 100vh;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 3rem;
+  
+
+  @include sm{
+    height: auto;
+    justify-content: center;
+  }
+
+
+  p {
+    font-size: 8rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: white;
+    @include sm{
+        font-size: 4rem;
+    }
+  }
+
+  #mail {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    @include sm{
+      flex-direction:  column;
+    }
+
+    @include md{
+      flex-wrap: wrap;
+    }
+
+    a {
+      padding: 4rem 8rem;
+      text-decoration: none;
+      border: 2px solid white;
+      border-radius: 6rem;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      @include sm{
+        padding:2rem 4rem;
+        width: auto;
+      }
+      span {
+        font-size: 3rem;
+        color: white;
+        z-index: 2;
+        font-weight: 700;
+        padding: 0.2rem;
+        &:hover{
+          color: black;
+        }
+        
+
+        @include sm{
+          font-size: 2rem;
+        }
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+
+        clip-path: circle(0px at 50% 50%);
+        background-color: white;
+
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        transition: all 0.6s ease-in-out 0s;
+      }
+    }
+    a:hover::after {
+      clip-path: circle(1000px at 50% 50%);
+      }
+
+  }
+  
+  #social {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5rem;
+    width: 100%;
+    @include sm{
+      gap: 2px;
+    }
+    
+    a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      width: 150px;
+      z-index: 2;
+      padding: 1rem;
+
+      
+      &::before{
+        content: " ";
+        position: absolute;
+        top: 0;
+        background-color: $yellow;
+        width: 100%;
+        height: 100px;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: all 0.6s ease-in-out 0s;
+      }
+
+      span{
+        margin-top: 5px;
+        z-index: 2;
+        &:nth-child(2){
+          font-size: 1.3rem;
+        }
+      }
+    }
+
+    a:hover::before{
+      clip-path:polygon(0 0, 100% 0, 99% 100%, 0 100%);
+    }
+
+
+
+  }
+}

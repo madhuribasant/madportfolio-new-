@@ -1,0 +1,256 @@
+@use "./abstract/var" as *;
+@use "./abstract/mixins" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: $gilroy;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#main {
+  background-color: $light-brown;
+  height: 0vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  @include sm {
+    background-color: black;
+  }
+}
+
+#hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  padding: 2rem 5rem;
+
+  @include sm {
+    padding: 0.5rem 1rem;
+  }
+
+  h1 {
+    font-size: 15rem;
+    color: $brown;
+    font-weight: 500;
+    text-transform: capitalize;
+    @include sm {
+      color: #f2f2f2;
+      font-size: 8rem;
+    }
+
+    &:nth-child(2) {
+      align-self: flex-end;
+
+      .parent .child span:nth-child(1) {
+        font-family: $mazius;
+        color: $yellow;
+        font-size: 12rem;
+        margin-right: 1rem;
+        text-transform: lowercase;
+
+        @include sm {
+          font-size: 8rem;
+        }
+      }
+    }
+  }
+}
+
+#intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  height: 100vh;
+  background-color: #f2f2f2;
+  @include sm {
+    background-color: $dark-brown;
+  }
+
+  .section-heading {
+    color: $dark-brown;
+    align-self: flex-start;
+    font-size: 6rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+    color: $brown;
+    @include sm {
+      color: #f2f2f2;
+      
+    }
+  }
+  p {
+    width: 60vw;
+    font-size: 3rem;
+    text-align: center;
+
+    @include sm {
+      width: 90vw;
+      font-size: 2.3rem;
+      color: #f2f2f2;
+    }
+  }
+}
+
+.heading {
+  padding: 3rem;
+  background: #f2f2f2;
+  color: $brown;
+
+  @include sm {
+    background-color: $dark-grey;
+  }
+
+  h1 {
+    font-size: 6rem;
+    font-weight: 500;
+
+    @include sm {
+      font-size: 4rem;
+      color: #f2f2f2;
+    }
+
+    span {
+      &:nth-child(1) {
+        font-family: mazius;
+        color: $yellow;
+      }
+    }
+  }
+}
+
+#clients {
+  min-height: 100vh;
+  max-width: auto;
+  width: 100%;
+  background-color: #f2f2f2;
+  // column-count: 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 5rem;
+  column-gap: 3rem;
+  @include sm {
+    grid-template-columns: repeat(1, 1fr);
+    background-color: $dark-grey;
+  }
+  a {
+    &:nth-child(2),
+    &:nth-child(4) {
+      align-self: flex-start;
+    }
+  }
+
+  .item {
+    border-radius: 6rem;
+    padding: 0;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    img {
+      width: 110%;
+      height: 110%;
+    }
+
+    .client {
+      position: absolute;
+      bottom: 50px;
+      left: 50px;
+      background-color: white;
+      padding: 2rem 6rem;
+      border-radius: 50px;
+      // box-shadow: 5px 5px ;
+    }
+    .client_info {
+      bottom: 60px;
+      padding: 1rem 4rem;
+      color: $dark-brown;
+    }
+
+    .client_name {
+      font-size: 2rem;
+      font-weight: 500;
+      color: $brown;
+      text-transform: capitalize;
+    }
+  }
+}
+
+.clients-section {
+  min-height: auto;
+}
+
+.masonary {
+  max-height: auto;
+  column-count: 3;
+  column-gap: 2rem;
+  margin: 1.5rem;
+  padding: 0;
+  column-gap: 1.5em;
+  font-size: 0.85em;
+  margin-top: 10rem;
+
+  @include sm {
+    column-count: 1;
+  }
+}
+
+#services {
+  @extend #clients;
+}
+
+.reveal {
+  font-size: 2rem;
+  .parent {
+    overflow: hidden;
+    display: block;
+
+    .child {
+      display: block;
+      transform: translate(0, 100%);
+
+      span {
+        display: inline-block;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.reveal-heading {
+  @extend .reveal;
+}
+
+.ball {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 2px dashed $brown;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99;
+}
+
+.mazius {
+  font-family: $mazius;
+  color: $yellow;
+}

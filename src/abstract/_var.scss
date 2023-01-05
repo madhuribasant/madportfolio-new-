@@ -1,0 +1,41 @@
+@font-face {
+    font-family: mazius, sans-serif;
+    src: url("https://res.cloudinary.com/duskdho4x/raw/upload/v1671553330/fonts/mazius-display/MAZIUSREVIEW20.09-Regular_r620z1.otf");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: mazius;
+    src: url("https://res.cloudinary.com/duskdho4x/raw/upload/v1671553330/fonts/mazius-display/MAZIUSREVIEW20.09-Extraitalic_n2fade.otf");
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: gilroy;
+    src: url("https://res.cloudinary.com/duskdho4x/raw/upload/v1671553337/fonts/gilroy/Gilroy-Regular_yeh1m0.ttf");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: gilroy;
+    src: url("https://res.cloudinary.com/duskdho4x/raw/upload/v1671553338/fonts/gilroy/Gilroy-SemiBold_rekmio.ttf");
+    font-weight: 500;
+  }
+  
+  @font-face {
+    font-family: gilroy;
+    src: url("https://res.cloudinary.com/duskdho4x/raw/upload/v1671553335/fonts/gilroy/Gilroy-Bold_jvqlnq.ttf");
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: gilroy;
+    src: url("https://res.cloudinary.com/duskdho4x/raw/upload/v1671553335/fonts/gilroy/Gilroy-ExtraBold_xmtiyk.ttf");
+    font-weight: 900;
+  }
+  
+  $light-brown: #fcfaf8;
+  $brown: #383838;
+  $dark-brown: #111111;
+  $yellow: #14cf93;
+  $mazius: mazius;
+  $gilroy: gilroy;
+  $olive:#253b39;
+  $dark-grey:#282828;
