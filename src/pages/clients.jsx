@@ -1,4 +1,5 @@
 
+import { Suspense } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { Card } from "../components/card/Card";
@@ -8,7 +9,7 @@ export const Clients = () => {
 
   const { data ,isLoading } = useQuery("works", () =>
     fetch(
-      `https://dafhhtmvyudvxztkllpd.supabase.co/rest/v1/works?client=eq.${params.id}&select=*`,
+      `https://tmgomzcxkxtwnlmxxduy.supabase.co/rest/v1/works?client=eq.${params.id}&select=*`,
       {
         headers: {
           apikey: import.meta.env.VITE_ANON_KEY,
@@ -17,7 +18,7 @@ export const Clients = () => {
       }
     )
       .then((res) => res.json())
-      .then((val) => val)
+      .then((val) => val),{cacheTime:10}
   );
 
   
@@ -27,7 +28,9 @@ export const Clients = () => {
     <>
       <section className="clients-section">
         <section className="masonary">
-              <Card isLoading={isLoading} data={data}/>
+            <Suspense fallback={<h1>Loading...</h1>}>
+              <Card  data={data}/>
+            </Suspense>
         </section>
       </section>
     </>

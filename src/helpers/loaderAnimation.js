@@ -53,4 +53,5 @@ export const loaderAnimation = () => {
       ease: "power3.inOut",
 
     });
+
 };

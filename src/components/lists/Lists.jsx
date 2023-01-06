@@ -4,7 +4,7 @@ import './lists.scss'
 import {HiOutlineArrowNarrowRight} from 'react-icons/hi'
 
 export const Lists = () => {
-  const {data , isLoading} = useQuery("services",()=>  fetch(`https://dafhhtmvyudvxztkllpd.supabase.co/rest/v1/services?select=*`, {
+  const {data} = useQuery("services",()=>  fetch(`https://tmgomzcxkxtwnlmxxduy.supabase.co/rest/v1/services?select=*`, {
     headers: {
       apikey: import.meta.env.VITE_ANON_KEY,
       Authorization: "Bearer" + import.meta.env.VITE_ANON_KEY,

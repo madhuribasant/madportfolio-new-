@@ -19,17 +19,17 @@ const Footer = () => {
         </div>
 
         <div id="social">
-          <a href="">
+          <a href="https://www.instagram.com/madhuribasannt/">
             {" "}
-            <span>Instagram</span> <span>@madhuri</span>{" "}
+            <span>Instagram</span> {" "}
           </a>
-          <a href="">
-            <span>Twitter</span> <span>@madhuri</span>
+          <a href="https://twitter.com/basantmadhuri">
+            <span>Twitter</span> 
           </a>
-          <a href="">
-            <span>LinkedIn</span> <span>@madhuri</span>{" "}
+          <a href="https://www.linkedin.com/in/madhuri-basant-62b792182">
+            <span>LinkedIn</span> 
           </a>
-          <a href=""><span>Dribble</span> <span>@madhuri</span></a>
+
         </div>
       </footer>
     </>

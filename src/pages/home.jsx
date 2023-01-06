@@ -1,4 +1,4 @@
-import React, { Fragment, useRef, useEffect } from "react";
+import React, { Fragment, useRef, useEffect, Suspense } from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
@@ -6,36 +6,38 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGlobalContext } from "../components/Context";
 import { Lists } from "../components/lists/Lists";
 
-
-
 gsap.registerPlugin(ScrollTrigger);
 
-const Home = () => {
-  const { transition, setTransition ,loaderEnd } = useGlobalContext();
+const Home = (props) => {
+  const { transition, setTransition, loaderEnd } = useGlobalContext();
 
-
-  console.log(loaderEnd)
+  console.log(loaderEnd);
 
   const infoRef = useRef([]);
-  const { data, isLoading } = useQuery("clients", () =>
-    fetch(`https://dafhhtmvyudvxztkllpd.supabase.co/rest/v1/clients?select=*`, {
-      headers: {
-        apikey: import.meta.env.VITE_ANON_KEY,
-        Authorization: "Bearer" + import.meta.env.VITE_ANON_KEY,
-      },
-    }).then((res) => res.json())
+
+  const { isLoading, error, data, isFetching } = useQuery(
+    "client",
+    () =>
+      fetch(
+        `https://tmgomzcxkxtwnlmxxduy.supabase.co/rest/v1/clients?select=*`,
+        {
+          headers: {
+            apikey: import.meta.env.VITE_ANON_KEY,
+            Authorization: "Bearer" + import.meta.env.VITE_ANON_KEY,
+          },
+        }
+      ).then((res) => res.json(), { keepPreviousData: false }),
+    { staleTime: 50, cacheTime: 10000 }
   );
 
-
-  useEffect(()=>{
-
+  useEffect(() => {
     if (loaderEnd) {
-        let tl3 = gsap.timeline()
-        tl3
+      let tl3 = gsap.timeline();
+      tl3
         .to("#hero .reveal-heading .child", {
           y: 0,
           duration: 1.5,
-          delay: 1,
+          delay: 0.4,
           stagger: 0.5,
           ease: "power3.inOut",
         })
@@ -43,25 +45,18 @@ const Home = () => {
           x: -600,
           duration: 1.5,
           ease: "power3.inOut",
-    
         });
-        
     }
+  }, [loaderEnd]);
 
-
-  },[loaderEnd])
-
-
-  
-  useEffect(()=>{
+  useEffect(() => {
     try {
-      const reveal = document.querySelector(".reveal-heading")
-     reveal.childNodes[1].remove()
-      
+      const reveal = document.querySelector(".reveal-heading");
+      reveal.childNodes[1].remove();
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  },[transition])
+  }, [transition]);
 
   const handleEnter = (index) => {
     gsap.to(infoRef.current[index], {
@@ -83,10 +78,11 @@ const Home = () => {
     <>
       <section id="hero">
         <h1 className="reveal-heading">
-        <span className="parent">
-          <span className="child">Creative</span>
-        </span>
-        creative</h1>
+          <span className="parent">
+            <span className="child">Creative</span>
+          </span>
+          creative
+        </h1>
         <h1 className="reveal-heading">
           {" "}
           <span className="parent">
@@ -112,7 +108,6 @@ const Home = () => {
         </p>
       </section>
 
-
       <div className="heading">
         <h1>
           Clients I<span>'ve</span> dealt
@@ -120,50 +115,56 @@ const Home = () => {
       </div>
       <section id="clients">
         <div className="reveal"></div>
-        {isLoading || (
-          <>
-            {data.map((d, index) => {
-              return (
-                <Fragment key={d.client_id}>
-                
-                  <Link
-                    to={`/clients/${d.client_id}`}
-                    onClick={() => setTransition(true)}
+
+        {data?.map((d, index) => {
+          return (
+            <Fragment key={d.client_id}>
+              <Suspense fallback={<h1>Loading .....</h1>}>
+                <Link
+                  to={`/clients/${d.client_id}`}
+                  onClick={() => setTransition(true)}
+                >
+                  <div
+                    className="item"
+                    onMouseEnter={() => handleEnter(index)}
+                    onMouseLeave={() => handleLeave(index)}
                   >
                     <div
-                      className="item"
-                      onMouseEnter={() => handleEnter(index)}
-                      onMouseLeave={() => handleLeave(index)}
+                      ref={(elem) => infoRef.current.push(elem)}
+                      className="client client_info"
                     >
-                      <div
-                        ref={(elem) => infoRef.current.push(elem)}
-                        className="client client_info"
-                      >
-                        {d.company_does}
-                      </div>
-                      <div className="client client_name">{d.client_name}</div>
-                      <img src={`${d.cover_image}`} alt={`${d.client_name}`} />
-                      
-                      
+                      {d.company_does}
                     </div>
-                  </Link>
-                </Fragment>
-              );
-            })}
-          </>
-        )}
+                    <div className="client client_name">{d.client_name}</div>
+                    <Suspense fallback={<h1>Loading..</h1>}>
+                      {isLoading ? (
+                        <h1>Loading..</h1>
+                      ) : (
+                        <>
+                          <img
+                            src={`${d.cover_image}`}
+                            alt={`${d.client_name}`}
+                          />
+                        </>
+                      )}
+                    </Suspense>
+                  </div>
+                </Link>
+              </Suspense>
+            </Fragment>
+          );
+        })}
       </section>
 
       <div className="heading">
         <h1>
-          Service<span>s</span> 
+          Service<span>s</span>
         </h1>
       </div>
 
       <section id="services">
-          <Lists/>
+        <Lists />
       </section>
-
     </>
   );
 };

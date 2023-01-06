@@ -26,6 +26,10 @@
             font-family: gilroy;
             font-size: 8rem;
             font-weight: 500;
+
+            @include sm{
+              font-size: 4rem;
+            }
             
             .parent {
             .child {
@@ -50,3 +54,4 @@
 }
 
 }
+

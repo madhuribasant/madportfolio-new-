@@ -12,10 +12,7 @@ import { Transition } from "../components/transiton/Transition";
 const Layout = () => {
   const { transition } = useGlobalContext();
 
-  useEffect(()=>{  
-      
-  },[transition])
-
+ 
 
   return (
     <>
