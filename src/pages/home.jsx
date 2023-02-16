@@ -110,10 +110,10 @@ const Home = (props) => {
 
       <div className="heading">
         <h1>
-          Clients I<span>'ve</span> dealt
-          
-        </h1>
+          Clients I<span>'ve</span> dealt {"  "}
           <span>(click on the images)</span>
+        </h1>
+          
       </div>
       <section id="clients">
         <div className="reveal"></div>
