@@ -111,7 +111,9 @@ const Home = (props) => {
       <div className="heading">
         <h1>
           Clients I<span>'ve</span> dealt
+          
         </h1>
+          <span>(click on the images)</span>
       </div>
       <section id="clients">
         <div className="reveal"></div>
@@ -135,7 +137,7 @@ const Home = (props) => {
                     >
                       {d.company_does}
                     </div>
-                    <div className="client client_name">Click Me</div>
+                    <div className="client client_name">{d.client_name}</div>
                     <Suspense fallback={<h1>Loading..</h1>}>
                       {isLoading ? (
                         <h1>Loading..</h1>
