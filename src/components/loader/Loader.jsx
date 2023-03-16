@@ -7,7 +7,7 @@ const Loader = () => {
     <>
       <div id="loader">
         <div className='loader1'>
-          <h1 className="reveal head">Madhuri Basant is a</h1>
+          <h1 className="reveal head">Creative Graphics Designer</h1>
         </div>
         <div className='loader2'></div>
       </div>
