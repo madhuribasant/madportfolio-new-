@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <>
       <nav>
-        <Link onClick={()=>setTransition(true)} to="/">Madhuri Basant</Link>
+        <Link onClick={()=>setTransition(true)} to="/">Work Sample</Link>
         <a href="#services">Services</a>
         <a href="#contact"> Contact</a>
       </nav>
