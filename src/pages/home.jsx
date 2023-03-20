@@ -93,20 +93,6 @@ const Home = (props) => {
         </h1>
       </section>
 
-      <section id="intro">
-        <span className="section-heading">
-          {" "}
-          About <span className="mazius">me</span>{" "}
-        </span>
-        <p>
-          I am a creative <span className="mazius">graphic</span> designer with
-          innovative ideas and a unique approach to visuals.
-        </p>
-        <p>
-          Great attention to details and a talent for creating memorable visual
-          designs. Passion for keeping clients satisfied with each project.
-        </p>
-      </section>
 
       <div className="heading">
         <h1>
