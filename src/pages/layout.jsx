@@ -17,15 +17,9 @@ const Layout = () => {
   return (
     <>
       <main id="main">
-        {transition ? (
-          <Transition />
-        ) : (
-          <>
             <Navbar />
             <Outlet />
             <Footer />
-          </>
-        )}
       </main>
     </>
   );
