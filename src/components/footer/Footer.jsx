@@ -19,14 +19,14 @@ const Footer = () => {
         </div>
 
         <div id="social">
-          <a href="https://www.instagram.com/madhuribasannt/">
+          <a href="https://instagram.com/almondd_agency?igshid=YmMyMTA2M2Y=">
             {" "}
             <span>Instagram</span> {" "}
           </a>
-          <a href="https://twitter.com/basantmadhuri">
-            <span>Twitter</span> 
+          <a href="https://www.facebook.com/almonddagency">
+            <span>Facebook</span> 
           </a>
-          <a href="https://www.linkedin.com/in/madhuri-basant-62b792182">
+          <a href="https://www.linkedin.com/company/almondd/">
             <span>LinkedIn</span> 
           </a>
 
